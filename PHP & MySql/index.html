@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BIRAI - Fullstack Developer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1A2C32;
+      color: white;
+      overflow-x: hidden;
+    }
+    header, footer {
+      background-color: #1b263b;
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 80px;
+    }
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      margin-left: 0;
+      position: static;
+    }
+    .menu-toggle {
+      margin-right: 20px;
+      position: static;
+    }
+    .bar {
+      width: 30px;
+      height: 4px;
+      background: white;
+      margin: 3px 0;
+      border-radius: 20px;
+    }
+    nav {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background: #1b263b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+      transition: 0.3s;
+      z-index: 999;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    nav ul li {
+      margin: 20px 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    .nav-active {
+      left: 0;
+    }
+    .hero, .about, .skills, .projects, .contact-section {
+      padding: 40px 10%;
+      text-align: center;
+    }
+    .hero {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .hero img {
+      width: 200px;
+      border-radius: 10px;
+    }
+    .skill-icons img {
+      width: 80px;
+      margin: 10px;
+    }
+    .projects .project-item {
+      background-color: #1b263b;
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+      border-radius: 10px;
+    }
+    button {
+      background-color: #ff6600;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e65c00;
+    }
+    .contact-form {
+      max-width: 420px;
+      margin: 30px auto 0 auto;
+      padding: 32px 28px 24px 28px;
+      background: #22303c;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      text-align: left;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+      color: #ffb366;
+      letter-spacing: 0.5px;
+    }
+    .form-control,
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 6px;
+      border: 1.5px solid #2d3e4f;
+      background-color: #1a2633;
+      color: #fff;
+      font-size: 1em;
+      transition: border 0.2s;
+      box-sizing: border-box;
+      margin-top: 2px;
+    }
+    .form-control:focus,
+    .contact-form input[type="text"]:focus,
+    .contact-form input[type="email"]:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border: 1.5px solid #ff6600;
+      background: #22303c;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 90px;
+      max-height: 220px;
+    }
+    .error-message {
+      color: #ff4d4d;
+      font-size: 0.92em;
+      margin-top: 4px;
+      display: block;
+    }
+    .counter {
+      font-size: 0.85em;
+      color: #aaa;
+      float: right;
+      margin-top: 2px;
+    }
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #ff6600 60%, #ffb366 100%);
+      color: #fff;
+      padding: 12px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.08em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(255,102,0,0.08);
+    }
+    .submit-btn:hover {
+      background: linear-gradient(90deg, #ffb366 0%, #ff6600 100%);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="logo">BIRAI</div>
+    <nav id="menu">
+      <ul>
+        <li><a href="#" onclick="toggleMenu()">Home</a></li>
+        <li><a href="#" onclick="toggleMenu()">About</a></li>
+        <li><a href="#" onclick="toggleMenu()">Project</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Hello <br> I'm BIRAI <br> I'm Fullstack Developer</h1>
+    <img src="image/abi.png" alt="Avatar">
+  </section>
+
+  <section class="about">
+    <h2>About me</h2>
+    <p>Hello! I'm Birlai Birai, a passionate Fullstack Developer dedicated to building modern, scalable, and user-friendly web applications.</p>
+    <button onclick="window.location.href='cv.pdf'">Download CV</button>
+  </section>
+
+  <section class="skills">
+    <h2>Skill and Tools</h2>
+    <div class="skill-icons">
+      <img src="image/html.png" alt="HTML">
+      <img src="image/js.png" alt="JavaScript">
+      <img src="image/css.png" alt="CSS">
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Last Project</h2>
+    <div class="project-item">
+      <img src="image/wayang.png" width="150">
+      <h3>Culture Web</h3>
+      <button>View</button>
+    </div>
+    <div class="project-item">
+      <img src="image/daun.png" width="150">
+      <h3>Cinta Lingkungan Web</h3>
+      <button>View</button>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <form id="contactForm" class="contact-form" action="contact.php" method="POST">
+        <div class="form-group">
+          <label for="fullName">Nama Lengkap</label>
+          <input type="text" id="fullName" name="fullName" required>
+          <small class="error-message" id="fullNameError"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <small class="error-message" id="emailError"></small>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telepon</label>
+          <input type="text" id="phone" name="phone" required>
+          <small class="error-message" id="phoneError"></small>
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" rows="5" maxlength="300" required></textarea>
+          <small class="counter" id="messageCounter">0/300</small>
+          <small class="error-message" id="messageError"></small>
+        </div>
+        <button type="submit" class="submit-btn">Kirim</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 - Birai</p>
+  </footer>
+
+  <!-- jQuery & Script Validasi -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#message').on('input', function () {
+        $('#messageCounter').text($(this).val().length + "/300");
+      });
+
+      $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+
+        let fullName = $('#fullName').val().trim();
+        let email = $('#email').val().trim();
+        let phone = $('#phone').val().trim();
+        let message = $('#message').val().trim();
+
+        $('.error-message').text('');
+        $('#formSuccess').hide();
+
+        let isValid = true;
+
+        if (fullName === '') {
+          $('#fullNameError').text('Nama lengkap wajib diisi.');
+          isValid = false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          $('#emailError').text('Format email tidak valid.');
+          isValid = false;
+        }
+
+        const phonePattern = /^[0-9]{10,15}$/;
+        if (!phonePattern.test(phone)) {
+          $('#phoneError').text('Nomor handphone harus 10-15 digit angka.');
+          isValid = false;
+        }
+
+        if (message === '') {
+          $('#messageError').text('Pesan tidak boleh kosong.');
+          isValid = false;
+        }
+
+        if (isValid) {
+          $.ajax({
+            url: 'contact.php',
+            type: 'POST',
+            data: {
+              fullName: fullName,
+              email: email,
+              phone: phone,
+              message: message
+            },
+            success: function(response) {
+              $('#formSuccess').html(response).show();
+              $('#contactForm')[0].reset();
+            },
+            error: function() {
+              $('#formSuccess').html('Terjadi kesalahan. Silakan coba lagi.').show();
+            }
+          });
+        }
+      });
+    });
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("nav-active");
+    }
+  </script>
+</body>
+</html>
